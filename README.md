@@ -90,3 +90,47 @@ Real-time aplikacije, ki veliko berejo, lahko generirajo stroške. Cena je pa od
 
 ### ✖ Manj primerno za velike relacijske baze
 Firebase je boljša izbira za preproste, hierarhične podatke.
+
+---
+
+## Uporabnost (realni primeri)
+Firebase platforma ima 2+ miliona aktivnih projektov in je ena najbolj uporabljenih backend storitev na svetu.
+
+Tipične aplikacije:
+- Klepeti
+- Igre z več igralci
+- IoT senzorji
+- Real-time dashboardi
+- Beleženje lokacije v živo
+
+Znani uporabniki:
+- Duolingo
+- Shazam
+- Alibaba
+- Hotstar
+
+---
+
+## Časovna in prostorska zahtevnost
+### Časovna zahtevnost
+Firebase nima klasičnih Big-O garancij, ker je NoSQL in deluje kot oblačna storitev.
+
+| Operacija                     | Časovna zahtevnost | Razlaga                       |
+|-------------------------------|--------------------|-------------------------------|
+| Branje vozlišča               | O(n)               | n = velikost JSON poddrevesa  |
+| Pisanje                       | O(1) - O(n)        | odvisno od velikosti podatkov |
+| Query (orderBy, limitToFirst) | O(n)               | linearna po številu elementov |
+| Real-time update              | ~O(1)              | push preko WebSocket          |
+
+### Prostorska zahtevnost
+- Podatki so zapisani kot JSON, kar je kompakten format
+- Podvajanje podatkov lahko poveča velikost, pomembno je načrtovanje strukture
+- Skupni strošek = prostor + promet (down/up)
+
+## Vzdrževanje in dolgoročna stabilnost
+Firebase Realtime Database vzdržuje Google:
+- Samodejne posodobitve strežnikov
+- Redne varnostne posodobitve
+- Avtomatsko skaliranje
+- Dolgoročna podpora
+- Veliko knjižnic v več jezikov
