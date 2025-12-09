@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "12690201786",
+    "firebase_url": "https://fir-chat-demo-1d3c3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fir-chat-demo-1d3c3",
+    "storage_bucket": "fir-chat-demo-1d3c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12690201786:android:50f11b1fc72a2509e2b683",
+        "android_client_info": {
+          "package_name": "com.example.firebase_chat_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2b14CNqBstxdBc5K1mO485fEc3dm7ztU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

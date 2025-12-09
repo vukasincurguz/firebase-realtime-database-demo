@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Firebase Chat</title>
+</head>
+<body>
+<h2>Mini Chat</h2>
+
+<div id="messages" style="border:1px solid #ccc; padding:10px; width:400px; height:200px; overflow-y:scroll;">
+</div>
+
+<input type="text" id="usernameInput" placeholder="Vpiši uporabniško ime..." style="width:150px;">
+<input id="msgInput" placeholder="Vpiši sporočilo..." style="width:200px;">
+<button id="sendBtn">Pošlji</button>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getDatabase, ref, push, onChildAdded } 
+    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBZCnCF4zEM4HMeu9wAEjPUj6sxXlX1o1k",
+    authDomain: "fir-chat-demo-1d3c3.firebaseapp.com",
+    databaseURL: "https://fir-chat-demo-1d3c3-default-rtdb.europe-west1.firebasedatabase.app/",
+    projectId: "fir-chat-demo-1d3c3",
+    storageBucket: "fir-chat-demo-1d3c3.firebasestorage.app",
+    messagingSenderId: "12690201786",
+    appId: "1:12690201786:web:8d906f1bc1f0aa9fe2b683",
+    measurementId: "G-TFNEE2B7V8"
+};
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const chatRef = ref(db, "chat/messages");
+
+const msgBox = document.getElementById("messages");
+const input = document.getElementById("msgInput");
+const usernameInput = document.getElementById("usernameInput");
+const sendBtn = document.getElementById("sendBtn");
+
+// Poslusanje
+onChildAdded(chatRef, (data) => {
+    const msg = data.val();
+    const div = document.createElement("div");
+    div.textContent = `[${msg.time}] ${msg.user}: ${msg.text}`;
+    msgBox.appendChild(div);
+    msgBox.scrollTop = msgBox.scrollHeight;
+});
+
+// Posiljanje
+sendBtn.onclick = async () => {
+    const text = input.value.trim();
+    const username = usernameInput.value.trim() || "Anonimni uporabnik";
+    if (!text) return;
+
+    try {
+        await push(chatRef, {
+            text: text,
+            time: new Date().toLocaleTimeString(),
+            user: username
+        });
+        input.value = "";
+    } catch (e) {
+        alert("Napaka pri pošiljanju: " + e.message);
+    }
+};
+</script>
+
+</body>
+</html>
