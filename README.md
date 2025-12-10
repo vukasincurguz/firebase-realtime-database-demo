@@ -190,17 +190,22 @@ Firebase Realtime Database vzdržuje Google:
 - Veliko knjižnic v več jezikov
 
 ## Primer enostavnega klepeta (spletna in Android aplikacija)
+
 https://github.com/user-attachments/assets/645a3737-c3d1-4806-93fb-1802821698ed
+
 <img width="1446" height="888" alt="image" src="https://github.com/user-attachments/assets/e310aa0f-4065-4032-91d2-c11e32627b00" />
 
 ## Primer nastavljanja "pravil" (rules) in obravnavanje izjem v Kotlinu
+
 <img width="1437" height="754" alt="image" src="https://github.com/user-attachments/assets/1af1c484-900c-4506-b672-ead6b4d70449" />
+
 ```kotlin
 db.push().setValue(message)
                     .addOnFailureListener {
                         Toast.makeText(this, "Napaka: ${it.message}", Toast.LENGTH_SHORT).show()
                     }
 ```
+
 <img width="394" height="210" alt="image" src="https://github.com/user-attachments/assets/0b191cdc-11b2-46b5-b9df-218c4a1bc4c7" />
 
 
