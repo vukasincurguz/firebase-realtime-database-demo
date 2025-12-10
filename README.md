@@ -47,6 +47,60 @@ Ko se en uporabnik poveže na bazo:
 
 To omogoča real-time aplikacije brez kompleksnih backend rešitev.
 
+### Inicializacija Firebase
+
+```kotlin
+val database = Firebase.database
+val chatRef = database.getReference("chat/messages")
+```
+
+### Vnos v bazo in poslušanje sprememb v realnem času
+```kotlin
+fun sendMessage(username: String, text: String) {
+    val message = mapOf(
+        "user" to username,
+        "text" to text,
+        "time" to SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+    )
+
+    chatRef.push().setValue(message)
+        .addOnSuccessListener { 
+            Log.d("FirebaseDemo", "Message sent") 
+        }
+        .addOnFailureListener { e -> 
+            Log.e("FirebaseDemo", "Error sending message", e)
+        }
+}
+
+chatRef.addChildEventListener(object : ChildEventListener {
+    override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+        val msg = snapshot.getValue<Map<String, String>>()
+        Log.d("FirebaseDemo", "New message: $msg")
+    }
+    override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {}
+    override fun onChildRemoved(snapshot: DataSnapshot) {}
+    override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {}
+    override fun onCancelled(error: DatabaseError) {
+        Log.e("FirebaseDemo", "Listener cancelled", error.toException())
+    }
+})
+```
+
+### Posodobitev in brisanje
+```
+fun updateMessage(messageId: String, newText: String) {
+    chatRef.child(messageId).child("text").setValue(newText)
+        .addOnSuccessListener { Log.d("FirebaseDemo", "Message updated") }
+        .addOnFailureListener { e -> Log.e("FirebaseDemo", "Update failed", e) }
+}
+
+fun deleteMessage(messageId: String) {
+    chatRef.child(messageId).removeValue()
+        .addOnSuccessListener { Log.d("FirebaseDemo", "Message deleted") }
+        .addOnFailureListener { e -> Log.e("FirebaseDemo", "Delete failed", e) }
+}
+```
+
 ### Offline način
 Firebase klient (Android/iOS/Web) hrani lokalni predpomnilnik, spremembe zapisuje lokalno in sinhronizira z oblakom, ko ponovno vzpostavi povezavo z internetom.
 
