@@ -1,6 +1,6 @@
 # Firebase Realtime Database
 
-**Firebase Realtime Database** je NoSQL dokumentna oblačna baza podatkov, optimizirano za realnočasovno sinhronizacijo med več napravami, ki je del *Google Firebase* ekosistema. Podatki so shranjeni v JSON drevesni strukturi, vse spremembe pa se takoj propagirajo vsem povezanim klientom.
+**Firebase Realtime Database** je NoSQL hierarhična oblačna baza podatkov, optimizirano za realnočasovno sinhronizacijo med več napravami, ki je del *Google Firebase* ekosistema. Podatki so shranjeni v JSON drevesni strukturi, vse spremembe pa se takoj propagirajo vsem povezanim klientom.
 
 Močno je povezana s *Firebase Auth*, *Firebase Hosting* in *Cloud Functions*, kar omogoča celoten ekosistem za razvoj platformno odvisnih aplikacij. Predvsem je uporabljen pri razvoju mobilnih aplikacij za operacijske sisteme Android in iOS, ter za spletne aplikacije.
 
