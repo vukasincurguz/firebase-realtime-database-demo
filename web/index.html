@@ -16,19 +16,9 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getDatabase, ref, push, onChildAdded } 
-    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+import { getDatabase, ref, push, onChildAdded }  from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+import { firebaseConfig } from './firebaseConfig.js';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBZCnCF4zEM4HMeu9wAEjPUj6sxXlX1o1k",
-    authDomain: "fir-chat-demo-1d3c3.firebaseapp.com",
-    databaseURL: "https://fir-chat-demo-1d3c3-default-rtdb.europe-west1.firebasedatabase.app/",
-    projectId: "fir-chat-demo-1d3c3",
-    storageBucket: "fir-chat-demo-1d3c3.firebasestorage.app",
-    messagingSenderId: "12690201786",
-    appId: "1:12690201786:web:8d906f1bc1f0aa9fe2b683",
-    measurementId: "G-TFNEE2B7V8"
-};
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 

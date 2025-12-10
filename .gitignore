@@ -1,0 +1,6 @@
+firebaseConfig.js
+google-services.json
+.gradle/
+build/
+captures/
+local.properties
