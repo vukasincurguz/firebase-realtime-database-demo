@@ -8,7 +8,7 @@ Močno je povezana s *Firebase Auth*, *Firebase Hosting* in *Cloud Functions*, k
 
 ## Zakaj Firebase Realtime Database?
 
-Obstaja veliko razlogov zakaj bi si izbrali Firebase Realtime Database, med katerim so glavni:
+Obstaja veliko razlogov zakaj bi si izbrali Firebase Realtime Database, med katerimi so glavni:
 
 - Potreba po real-time komunikaciji (npr. za klepet, multiplayer igre, IoT)
 - Ne želimo postavljati lastnih strežnikov ali baz podatkov
@@ -21,7 +21,7 @@ Obstaja veliko razlogov zakaj bi si izbrali Firebase Realtime Database, med kate
 ## Arhitektura in način delovanja
 
 ### Struktura podatkov
-Podatki so shranjeni kot *JSON* dokument, organiziran v drevo, podobno kot velik *"key-value"* objekt.
+Podatki so shranjeni kot *JSON* dokument, organizirani v drevo, podobno kot velik *"key-value"* objekt.
 
 Če delamo aplikacijo, ki podpira pošiljanje sporočil, struktura bi izgledala tako:
 
